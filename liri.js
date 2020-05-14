@@ -117,3 +117,75 @@ function getSpotifyInfo(){
   });
 }
 
+function getMovieInfo() {
+  var axios = require("axios");
+
+  var movie = userChoice;
+
+  if(userChoice.length === 0) {
+      movie = "Mr. Nobody"
+  }
+
+  axios.get("http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy").then(
+    function (data) {
+      data = data.data;
+      console.log("\n-------------\n")
+      console.log("Title: " + data.Title + "\nRelease Year: " + data.Year +
+        "\nIMDB Rating: " + data.imdbRating)
+        var test = data.Ratings.filter(x => x.Source === "Rotten Tomatoes")[0]
+           if (test !== undefined)  
+            console.log("Rotten Tomatoes Rating: " + test.Value)
+     
+          else{
+              console.log("Rotten Tomatoes: This data is not available");
+              }
+         console.log("Country: " +
+        data.Country + "\nLanguage: " + data.Language + "\nPlot: " + data.Plot + "\nActors: " + data.Actors)
+
+      console.log("\n-------------\n")
+    })
+    .catch(function (error){
+
+      if (error.response){
+
+        console.log("---------------Data---------------");
+        console.log(error.response.data);
+        console.log("---------------Status---------------");
+        console.log(error.response.status);
+        console.log("---------------Status---------------");
+        console.log(error.response.headers);
+      }
+      else if (error.request){
+        // The request was made but no response was received
+        // `error.request` is an object that comes back with details pertaining to the error that occurred.
+        console.log(error.request);
+      }
+      else{
+        // Something happened in setting up the request that triggered an Error
+        console.log("Error", error.message);
+      }
+      console.log(error.config);
+    });
+}
+
+function getTextFile(){
+
+  var fs = require("fs");
+  fs.readFile("random.txt", "utf8", function (error, data){
+    
+    if (error){
+        return console.log(error);
+    }
+    
+    var random = data.split(", ");
+
+    if (random.length === 2){
+      command = random[0];
+      userChoice = random[1];
+      checkCommand();
+    }
+    else{
+      console.log("Confirm text format in random.txt. Format is: command, search term.")
+    }
+  })
+}
