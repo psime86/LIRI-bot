@@ -1,0 +1,31 @@
+{
+  "name": "LIRI-bot",
+  "version": "1.0.0",
+  "description": "LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a _Language_ Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.",
+  "main": "keys.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bandsintown": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "moment": "^2.25.3",
+    "node-spotify-api": "^1.1.1",
+    "omdb": "^0.8.0",
+    "spotify-web-api-node": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psime86/LIRI-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/psime86/LIRI-bot/issues"
+  },
+  "homepage": "https://github.com/psime86/LIRI-bot#readme"
+}
