@@ -12,9 +12,11 @@ Commands:
    * node liri.js do-what-it-says
 
    concert-this:
+
    ![](images/concert-this.JPG)
 
    spotify-this-song:
+   
    ![](images/spotify-this-song.JPG)
 
    movie-this:
